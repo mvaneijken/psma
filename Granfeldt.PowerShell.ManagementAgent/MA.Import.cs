@@ -159,7 +159,10 @@ namespace Granfeldt
                     Command cmd = new Command(Path.GetFullPath(ImportScript));
                     cmd.Parameters.Add(new CommandParameter("User", Username));
                     cmd.Parameters.Add(new CommandParameter("Password", Password));
+                    cmd.Parameters.Add(new CommandParameter("ClientId", ClientId));
+                    cmd.Parameters.Add(new CommandParameter("Secret", Secret));
                     cmd.Parameters.Add(new CommandParameter("Credentials", GetSecureCredentials()));
+                    cmd.Parameters.Add(new CommandParameter("ClientCredentials", GetSecureClientCredentials()));
                     cmd.Parameters.Add(new CommandParameter("OperationType", importOperationType.ToString()));
                     cmd.Parameters.Add(new CommandParameter("UsePagedImport", UsePagedImport));
                     cmd.Parameters.Add(new CommandParameter("PageSize", ImportRunStepPageSize));

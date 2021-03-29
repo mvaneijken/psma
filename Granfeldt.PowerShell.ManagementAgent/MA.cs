@@ -111,6 +111,8 @@ namespace Granfeldt
 		{
 			public static string Username = "Username";
 			public static string Password = "Password";
+			public static string ClientId = "ClientId";
+			public static string Secret = "Secret";
 
 			public static string ImpersonationDomain = "Domain (impersonate)";
 			public static string ImpersonationUsername = "Username (impersonate)";
@@ -157,7 +159,10 @@ namespace Granfeldt
 
 		string Username;
 		string Password;
+		string ClientId;
+		string Secret;
 		SecureString SecureStringPassword = null;
+		SecureString SecureStringSecret = null;
 
 		void WhoAmI()
 		{
@@ -203,6 +208,16 @@ namespace Granfeldt
 				return null;
 			}
 			return new PSCredential(Username, SecureStringPassword);
+		}
+
+		PSCredential GetSecureClientCredentials()
+		{
+			if (string.IsNullOrEmpty(ClientId) || (SecureStringSecret == null))
+			{
+				Tracer.TraceInformation("clientid-or-secret-empty returning-null-pscredentials");
+				return null;
+			}
+			return new PSCredential(ClientId, SecureStringSecret);
 		}
 
 		public PowerShellManagementAgent()

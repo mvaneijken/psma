@@ -66,7 +66,10 @@ namespace Granfeldt
 				Command cmd = new Command(Path.GetFullPath(ExportScript));
 				cmd.Parameters.Add(new CommandParameter("User", Username));
 				cmd.Parameters.Add(new CommandParameter("Password", Password));
+				cmd.Parameters.Add(new CommandParameter("ClientId", ClientId));
+				cmd.Parameters.Add(new CommandParameter("Secret", Secret));
 				cmd.Parameters.Add(new CommandParameter("Credentials", GetSecureCredentials()));
+				cmd.Parameters.Add(new CommandParameter("ClientCredentials", GetSecureClientCredentials()));
 				cmd.Parameters.Add(new CommandParameter("ExportType", exportType));
                 cmd.Parameters.Add(new CommandParameter("Schema", schemaPSObject));
 

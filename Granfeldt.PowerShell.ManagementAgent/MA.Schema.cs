@@ -34,7 +34,10 @@ namespace Granfeldt
 				Command cmd = new Command(Path.GetFullPath(SchemaScript));
 				cmd.Parameters.Add(new CommandParameter("Username", Username));
 				cmd.Parameters.Add(new CommandParameter("Password", Password));
+				cmd.Parameters.Add(new CommandParameter("ClientId", ClientId));
+				cmd.Parameters.Add(new CommandParameter("Secret", Secret));
 				cmd.Parameters.Add(new CommandParameter("Credentials", GetSecureCredentials()));
+				cmd.Parameters.Add(new CommandParameter("ClientCredentials", GetSecureClientCredentials()));
 				schemaResults = InvokePowerShellScript(cmd, null);
 				CloseRunspace();
 

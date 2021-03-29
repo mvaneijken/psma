@@ -228,6 +228,72 @@
             <name>
             </name>
             <use>connectivity</use>
+            <type>label</type>
+            <validation>
+            </validation>
+            <text>Secondary Authentication (optional): These credentials are passed as parameters to all scripts.</text>
+            <default-value>
+            </default-value>
+          </parameter>
+          <parameter>
+            <name>ClientId</name>
+            <use>connectivity</use>
+            <type>string</type>
+            <validation>
+            </validation>
+            <text>
+            </text>
+            <default-value>
+            </default-value>
+          </parameter>
+          <parameter>
+            <name>Secret</name>
+            <use>connectivity</use>
+            <type>encrypted-string</type>
+            <validation>
+            </validation>
+            <text>
+            </text>
+            <default-value>
+            </default-value>
+          </parameter>          
+          <parameter>
+            <name>
+            </name>
+            <use>connectivity</use>
+            <type>label</type>
+            <validation>
+            </validation>
+            <text>Secondary Authentication (optional): These credentials are passed as parameters to all scripts.</text>
+            <default-value>
+            </default-value>
+          </parameter>
+          <parameter>
+            <name>ClientId</name>
+            <use>connectivity</use>
+            <type>string</type>
+            <validation>
+            </validation>
+            <text>
+            </text>
+            <default-value>
+            </default-value>
+          </parameter>
+          <parameter>
+            <name>Secret</name>
+            <use>connectivity</use>
+            <type>encrypted-string</type>
+            <validation>
+            </validation>
+            <text>
+            </text>
+            <default-value>
+            </default-value>
+          </parameter>
+          <parameter>
+            <name>
+            </name>
+            <use>connectivity</use>
             <type>divider</type>
             <validation>
             </validation>

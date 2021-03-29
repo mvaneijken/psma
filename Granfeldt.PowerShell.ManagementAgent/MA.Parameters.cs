@@ -24,6 +24,11 @@ namespace Granfeldt
 						configParametersDefinitions.Add(ConfigParameterDefinition.CreateEncryptedStringParameter(Constants.Parameters.Password, ""));
 
 						configParametersDefinitions.Add(ConfigParameterDefinition.CreateDividerParameter());
+						configParametersDefinitions.Add(ConfigParameterDefinition.CreateLabelParameter("Client credentials (optional): These credentials are passed as parameters to all scripts."));
+						configParametersDefinitions.Add(ConfigParameterDefinition.CreateStringParameter(Constants.Parameters.ClientId, ""));
+						configParametersDefinitions.Add(ConfigParameterDefinition.CreateEncryptedStringParameter(Constants.Parameters.Secret, ""));
+
+						configParametersDefinitions.Add(ConfigParameterDefinition.CreateDividerParameter());
 						configParametersDefinitions.Add(ConfigParameterDefinition.CreateLabelParameter("Impersonation (optional): If username and password below are specified (domain optional), the specified user is used to run all scripts. If not specified,  the scripts are run in the security context of the FIM Synchronization Service service account."));
 						configParametersDefinitions.Add(ConfigParameterDefinition.CreateStringParameter(Constants.Parameters.ImpersonationDomain, ""));
 						configParametersDefinitions.Add(ConfigParameterDefinition.CreateStringParameter(Constants.Parameters.ImpersonationUsername, ""));
@@ -120,6 +125,12 @@ namespace Granfeldt
 							Password = configParameters[cp.Name].SecureValue.ConvertToUnsecureString();
 							SecureStringPassword = configParameters[cp.Name].SecureValue;
                         }
+						if (cp.Name.Equals(Constants.Parameters.ClientId)) ClientId = configParameters[cp.Name].Value;
+						if (cp.Name.Equals(Constants.Parameters.Secret))
+						{
+							Secret = configParameters[cp.Name].SecureValue.ConvertToUnsecureString();
+							SecureStringSecret = configParameters[cp.Name].SecureValue;
+						}
 
 						if (cp.Name.Equals(Constants.Parameters.ImpersonationDomain)) impersonationUserDomain = configParameters[cp.Name].Value;
 						if (cp.Name.Equals(Constants.Parameters.ImpersonationUsername)) impersonationUsername = configParameters[cp.Name].Value;
